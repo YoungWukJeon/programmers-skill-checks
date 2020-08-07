@@ -11,11 +11,6 @@ public class Problem {
 //        int[] numbers = {1, 2, 3, 4, 5, 0, 6, 19};
 //        int[] numbers = {0, 0, 0, 0};
         System.out.println(solution.solution(numbers));
-        System.out.println("10".compareTo("50"));
-        System.out.println("10".compareTo("14"));
-        System.out.println("\uD83D\uDE00".compareTo("a"));
-        System.out.println("\uD83D\uDE00");
-        System.out.println(Boolean.compare(true, false));
     }
 
     static class Solution {
