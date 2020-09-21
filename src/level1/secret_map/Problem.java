@@ -16,11 +16,9 @@ public class Problem {
     static class Solution {
         public String[] solution(int n, int[] arr1, int[] arr2) {
             String[] answer = new String[n];
-            String format = "%0" + n + "s";
             for (int i = 0; i < n; i++) {
-                String tempStr1 = String.format("%5s", binaryString(arr1[i], ""));
-                String tempStr2 = String.format(format, binaryString(arr2[i], ""));
-
+                String tempStr1 = format(n, binaryString(arr1[i], ""));
+                String tempStr2 = format(n, binaryString(arr2[i], ""));
                 answer[i] = orOperation(tempStr1, tempStr2);
             }
             return answer;
@@ -33,12 +31,22 @@ public class Problem {
             return binaryString(n / 2, (n % 2) + str);
         }
 
+        public String format(int n, String str) {
+            StringBuilder result = new StringBuilder();
+
+            result.append("0".repeat(Math.max(0, n - str.length())));
+
+            for (int i = 0; i < str.length(); i++) {
+                result.append(str.charAt(i));
+            }
+            return result.toString();
+        }
+
         public String orOperation(String str1, String str2) {
             StringBuilder result = new StringBuilder();
             for (int i = 0; i < str1.length(); i++) {
-                int c1 = str1.charAt(i);
-                int c2 = str2.charAt(i);
-
+                int c1 = Integer.parseInt(str1.substring(i, i + 1));
+                int c2 = Integer.parseInt(str2.substring(i, i + 1));
                 if ((c1 | c2) == 0) {
                     result.append(" ");
                 } else {
