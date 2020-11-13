@@ -33,18 +33,10 @@ public class Problem {
                     .max(Comparator.comparingInt(a -> a))
                     .get();
 
-            final var maxAnswerCounts = IntStream.range(0, answerCounts.size())
+            return IntStream.range(0, answerCounts.size())
                     .filter(i -> answerCounts.get(i).intValue() == maxAnswerCount.intValue())
-                    .mapToObj(i -> i + 1)
-                    .collect(Collectors.toList());
-
-            final var answer = new int[maxAnswerCounts.size()];
-
-            for (int i = 0; i < maxAnswerCounts.size(); i++) {
-                answer[i] = maxAnswerCounts.get(i);
-            }
-
-            return answer;
+                    .map(i -> i + 1)
+                    .toArray();
         }
     }
 }
